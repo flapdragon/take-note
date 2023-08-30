@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #E7F1FB;
+}
+
+.header-custom {
+  background-color: #1D4338 !important;
+}
+
+.required:after {
+  content:" *";
+  color: red;
+}
