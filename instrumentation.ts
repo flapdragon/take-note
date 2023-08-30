@@ -1,9 +1,9 @@
 import { sql } from '@vercel/postgres'
 
 export async function register() {
-  const dropTable = await sql`
-    DROP TABLE notes;
-  `
+  // const dropTable = await sql`
+  //   DROP TABLE notes;
+  // `
   const createTable = await sql`
     CREATE TABLE IF NOT EXISTS notes (
       id SERIAL PRIMARY KEY,
