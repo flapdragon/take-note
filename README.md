@@ -10,11 +10,11 @@ The form validation is minimalist, and implemented the point of the view that th
 
 
 ## Tech Stack
-Next.js @ 13.4.19
-React @ 18.2.0
-Tailwind @ 3.3.3
-Vercel Postgres (chosen for deployment to Vercel) @ 0.4.1
-Bootstrapped by `npx create-next-app@latest`
+Next.js @ 13.4.19<br />
+React @ 18.2.0<br />
+Tailwind @ 3.3.3<br />
+Vercel Postgres (chosen for deployment to Vercel) @ 0.4.1<br />
+Bootstrapped by `npx create-next-app@latest`<br />
 
 
 ## Getting Started
