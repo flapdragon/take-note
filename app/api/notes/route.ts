@@ -7,7 +7,6 @@ import { sql } from '@vercel/postgres'
 export async function GET() {
   // const sql = 'SELECT * FROM notes'
   const notes = await sql`SELECT * FROM notes ORDER BY created_date DESC;`
-  console.log(notes.rows)
   return NextResponse.json(notes.rows)
 }
 
@@ -16,6 +15,5 @@ export async function POST(request: Request) {
   // const sql = 'INSERT INTO notes(title, body, client) VALUES (?, ?, ?)'
   // const newNote = db.prepare(sql).run('', note.body, note.client)
   const newNote = await sql`INSERT INTO notes(title, body, client) VALUES ('', ${note.body}, ${note.client});`
-  console.log(newNote)
   return NextResponse.json({ "status": "success" })
 }

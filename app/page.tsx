@@ -47,8 +47,15 @@ export default function Home() {
 
   // Heroicons document text icon
   const IconDocumentText = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6 inline">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 inline">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+    </svg>
+  )
+
+  // Heroicons pencil square icon
+  const IconPencilSquare = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
     </svg>
   )
 
@@ -67,7 +74,7 @@ export default function Home() {
           .map((note: { id: number; body: string; client: string }) =>
             <Link key={note.id} href={`/notes/${note.id}`} style={{ cursor: 'pointer' }} title="Click to edit">
               <div className="relative group items-center">
-                <div className="absolute -inset-1 bg-violet-500 rounded-lg opacity-0 group-hover:opacity-100 transition duration-500 group-hover:duration-100"></div>
+                <div className="absolute -inset-1 bg-cyan-400 rounded-lg opacity-0 group-hover:opacity-100 transition duration-500 group-hover:duration-100"></div>
                 <div className="relative bg-gray-100 text-gray-800 my-3 p-6 rounded-lg shadow-lg">
                   <div className="flex justify-between items-center">
                     <div><h2 className="text-xl font-bold mb-2">This is the title</h2></div>
@@ -90,20 +97,24 @@ export default function Home() {
   }
 
   return (
-    <main>
-      <div className="pl-4 pr-4 flex flex-col mt-6 mx-2">
+    <main className="grid place-items-center">
+      
+      <div className="flex-1 pl-4 pr-4 mt-6 mx-2">
         <h1 className="mb-5 text-4xl text-gray-700 font-semibold text-center">My Notes</h1>
       </div>
 
-      <div className="pl-4 pr-4 flex flex-col mt-6 mx-2 text-center">
+      <div className="flex-1 pl-4 pr-4 mt-6 mx-2">
         <Link href='/notes'>
-          <button className="bg-blue-600 hover:bg-blue-500 text-white text-lg font-bold py-2 px-4 rounded align-middle">
-            Create A Note <IconDocumentText />
+          <button className="bg-indigo-600 hover:bg-indigo-500 text-white text-xl font-bold py-2 px-4 rounded align-middle">
+            <svg className="h-6 w-6 pb-1 pr-1 text-white inline" aria-hidden="true">
+              <IconPencilSquare />
+            </svg>
+            Create A Note
           </button>
         </Link>
       </div>
 
-      <div className="pl-4 pr-4 flex flex-col mt-6 mx-2">
+      <div className="flex-1 pl-4 pr-4 col mt-6 mx-2 w-3/4">
         <div className="bg-white rounded-full border-none p-3 mb-4 shadow-md">
           <div className="flex items-center">
             <IconMagnifyingGlass />
@@ -111,12 +122,12 @@ export default function Home() {
               id="search"
               type="text"
               placeholder="Search Notes..."
-              className="ml-3 focus:outline-none w-full text-xl"
+              className="ml-3 focus:outline-none text-xl"
               onChange={handleChangeSearch} />
           </div>
         </div>
 
-        <div className="p-4 my-1">
+        <div className="flex-1 p-4 my-1">
           {data.length > 0 ?
             <NotesList />
           :

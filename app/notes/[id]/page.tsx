@@ -63,19 +63,17 @@ export default function EditNotePage() {
   }
 
   return (
-    <form className="w-full max-w-2xl px-2">
-      <div className="lg:flex lg:items-center mb-6">
-        <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">Edit Note</h2>
+    <main className="grid place-items-center">
+    <form>
+      <div className="flex-1 pl-4 pr-4 mt-6 mx-2">
+        <h1 className="mb-5 text-4xl text-gray-700 font-semibold text-center">Edit Note</h1>
       </div>
 
-      {/* Note */}
-      <div className="lg:flex lg:items-center mb-6">
-        <div className="lg:w-1/3">
+      <div className="flex-1 mb-6">
+        <div className="col-span-2">
           <label className="block text-gray-700 font-bold lg:text-right mb-1 lg:mb-0 pr-4" htmlFor="note">
             Note*:
           </label>
-        </div>
-        <div className="lg:w-2/3">
           <textarea
             id="note"
             value={body}
@@ -85,40 +83,75 @@ export default function EditNotePage() {
             required
             minLength={20}
             maxLength={300}
-            className="resize rounded-lg bg-gray-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500"></textarea>
+            className="min-w-full rounded-lg bg-gray-100 appearance-none border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-cyan-400"></textarea>
             <p className="text-grey-400 text-xs italic">* Please enter between 20 and 300 characters.</p>
         </div>
       </div>
 
-      {/* Client */}
-      <div className="lg:flex lg:items-center mb-6">
-        <div className="lg:w-1/3">
-          <label className="block text-gray-700 font-bold lg:text-right mb-1 lg:mb-0 pr-4" htmlFor="client">
-            Client:
-          </label>
-        </div>
-        <div className="lg:w-2/3">
-          <input
-            id="client"
-            type="text"
-            value={client}
-            onChange={handleChangeClient}
-            placeholder="Client"
-            className="bg-gray-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500" />
-        </div>
+      <div className="flex-1 mb-6">
+        <label className="text-gray-700 font-bold lg:text-right mb-1 lg:mb-0 pr-4" htmlFor="client">
+          Client:
+        </label>
+        <input
+          id="client"
+          type="text"
+          value={client}
+          onChange={handleChangeClient}
+          placeholder="Client"
+          className="w-full bg-gray-100 appearance-none border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-cyan-400" />
       </div>
 
-      {/* Submit */}
-      <div className="lg:flex lg:items-center mb-6">
-        <div className="lg:w-1/3"></div>
-        <div className="lg:w-2/3">
-          <button
-            onClick={handleSubmit}
-            className="bg-yellow-500 hover:bg-yellow-400 text-grey-700 font-bold py-2 px-4 rounded">
-            Save Changes
-          </button>
-        </div>
+      <div className="flex-1 pl-4 pr-4 mt-6 mx-2">
+        <button
+          onClick={handleSubmit}
+          className="w-44 bg-indigo-500 hover:bg-indigo-400 text-white font-bold py-2 px-4 rounded">
+          Save Changes
+        </button>
       </div>
     </form>
+  </main>
+    // <main className="grid flex place-items-center w-full">
+    //   <div className="flex-1 pl-4 pr-4 mt-6 mx-2">
+    //     <h1 className="mb-5 text-4xl text-gray-700 font-semibold text-center">Edit Note</h1>
+    //   </div>
+
+    //   <div className="flex-1 mb-6">
+    //     <label className="block text-gray-700 font-bold lg:text-right mb-1 lg:mb-0 pr-4" htmlFor="note">
+    //       Note*:
+    //     </label>
+    //     <textarea
+    //       id="note"
+    //       value={body}
+    //       onChange={handleChangeBody}
+    //       rows={6}
+    //       placeholder="Note"
+    //       required
+    //       minLength={20}
+    //       maxLength={300}
+    //       className="min-w-full rounded-lg bg-gray-100 appearance-none border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-cyan-400"></textarea>
+    //       <p className="text-grey-400 text-xs italic">* Please enter between 20 and 300 characters.</p>
+    //   </div>
+
+    //   <div className="flex-1 mb-6">
+    //     <label className="block text-gray-700 font-bold lg:text-right mb-1 lg:mb-0 pr-4" htmlFor="client">
+    //       Client:
+    //     </label>
+    //     <input
+    //       id="client"
+    //       type="text"
+    //       value={client}
+    //       onChange={handleChangeClient}
+    //       placeholder="Client"
+    //       className="w-full bg-gray-100 appearance-none border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-cyan-400" />
+    //   </div>
+
+    //   <div className="flex-1 mb-6">
+    //     <button
+    //       onClick={handleSubmit}
+    //       className="bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-2 px-4 rounded">
+    //       Save Changes
+    //     </button>
+    //   </div>
+    // </main>
   )
 }

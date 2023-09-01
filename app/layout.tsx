@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div>{children}</div>
+        <div className="h-screen from-purple-100 via-rose-300 to-violet-500 bg-gradient-to-br">{children}</div>
       </body>
     </html>
   )
