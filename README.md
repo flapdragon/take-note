@@ -59,6 +59,4 @@ A live demo of this app is deployed using Vercel at [https://take-note-one.verce
 
 3. Would add location services and data.
 
-4. The styling could use some work.
-5.  
-
+4. The styling could use some work. 
