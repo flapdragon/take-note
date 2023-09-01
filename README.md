@@ -19,7 +19,8 @@ Bootstrapped by `npx create-next-app@latest`<br />
 
 ## Getting Started
 
-Node.js will need to be installed already. This project was built with v18.16.0.
+Node.js will need to be installed already. This project was built with v18.16.0.<br />
+You will also need Git.
 
   Grab the code:
 ```bash
