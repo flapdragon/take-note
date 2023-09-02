@@ -7,17 +7,17 @@ export default function DeleteNotePage() {
   // Router, params
   const router = useRouter()
   const params = useParams()
+
   // State
-  const [body, setBody] = useState('')
-  const [client, setClient] = useState('')
+  const [note, setNote] = useState({title: '', body: '', client: ''})
 
   // Fetch note data
   useEffect(() => {
     fetch(`/api/notes/${params.id}`, { method: 'GET' })
       .then((res) => res.json())
       .then((response) => {
-        setBody(response.body)
-        setClient(response.client)
+        console.log(response)
+        setNote(response)
       })
   }, [])
 
@@ -51,13 +51,26 @@ export default function DeleteNotePage() {
         </div>
 
         <div className="flex-1 mb-6">
+          <label className="text-gray-700 font-bold lg:text-right mb-1 lg:mb-0 pr-4" htmlFor="title">
+            Title:
+          </label>
+          <input
+            id="title"
+            type="text"
+            value={note.title}
+            placeholder="No Title"
+            disabled
+            className="w-full bg-gray-200 appearance-none border-2 border-gray-200 rounded py-2 px-4 text-gray-800" />
+        </div>
+
+        <div className="flex-1 mb-6">
           <div className="col-span-2">
             <label className="block text-gray-700 font-bold lg:text-right mb-1 lg:mb-0 pr-4" htmlFor="note">
               Note*:
             </label>
             <textarea
               id="note"
-              value={body}
+              value={note.body}
               rows={5}
               placeholder="Note"
               disabled
@@ -72,8 +85,8 @@ export default function DeleteNotePage() {
           <input
             id="client"
             type="text"
-            value={client}
-            placeholder="Client"
+            value={note.client}
+            placeholder="No Client"
             disabled
             className="w-full bg-gray-200 appearance-none border-2 border-gray-200 rounded py-2 px-4 text-gray-800" />
         </div>

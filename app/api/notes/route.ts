@@ -14,6 +14,6 @@ export async function POST(request: Request) {
   const note = await request.json()
   // const sql = 'INSERT INTO notes(title, body, client) VALUES (?, ?, ?)'
   // const newNote = db.prepare(sql).run('', note.body, note.client)
-  const newNote = await sql`INSERT INTO notes(title, body, client) VALUES ('', ${note.body}, ${note.client});`
+  const newNote = await sql`INSERT INTO notes(title, body, client) VALUES (${note.title}, ${note.body}, ${note.client});`
   return NextResponse.json({ "status": "success" })
 }
