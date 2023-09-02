@@ -31,7 +31,9 @@ You will also need Git.
 ```bash
 git clone git@github.com:flapdragon/take-note.git
 # or
-$ git clone https://github.com/flapdragon/take-note.git
+git clone https://github.com/flapdragon/take-note.git
+# and change into that directory
+cd take-note
 ```
 
 Install dependencies:
@@ -39,24 +41,24 @@ Install dependencies:
 npm install
 # or
 yarn
-# I used npm for this  project.
+# I used npm for this project.
 ```
 
 Because I chose to deploy to Vercel and use their Postgres, there is the additional step of having to link your GitHub to Vercel and setup a Postgres database. Looking back this unfortunately makes the app not 100% self-contained git-clone-npm-run-dev-bam I'm up and running style.
 
 While that is sad, it actually is super easy to use Vercel and I was done converting from SQLite3 to Vercel Postgres and deployed to a very free site in minutes.
 
-Create a Vercel account:
+Create a Vercel account:<br />
 https://vercel.com/signup
 
-Link your GitHub repo to your Vercel (you can choose as many or as few repos as you like)
-https://vercel.com/docs/deployments/git/vercel-for-github
+Link your GitHub repo to your Vercel (you can choose as many or as few repos as you like):<br />
+https://vercel.com/docs/deployments/git/vercel-for-github<br />
 https://vercel.com/new (once you're logged in)
 
-Setup a Vercel Postgres database amd link it to your repo:
+Setup a Vercel Postgres database amd link it to your repo:<br />
 https://vercel.com/docs/storage/vercel-postgres/quickstart
 
-Once you are done with the steps on their site you will need to setup a few more things on your machine and project.
+Once you are done with the steps on their site you will need to setup a few more things on your machine and project.<br />
 You will need to install the Vercel CLI:
 ```bash
 npm i -g vercel@latest
