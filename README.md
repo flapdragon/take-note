@@ -93,8 +93,10 @@ A live demo of this app is deployed using Vercel at [https://take-note-one.verce
 
 2. Add a speech to text option for data entry for those that find that easier to work with.
 
-3. Add location services and data.
+3. Add more robust client data, like a separate client table and on the frontend autocomplete/suggestion on data entry.
 
-4. The styling needs further work. In particular the page titles and the create and edit forms.
+4. Add location services and data, to add to note/client data and possibly help autofill data.
+
+5. The styling needs further work. In particular the page titles and the create and edit forms.
 
 5. Sorting by note body, client, date.
