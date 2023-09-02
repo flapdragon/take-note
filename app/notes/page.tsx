@@ -1,43 +1,69 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
+import { useState, useEffect, useRef } from 'react'
 
-// TODO: Make form fields longer/wider
 // TODO: Validate that post is successful
 // TODO: Add dompurify and xss/sqli protections
+// TODO: Add some param to let home page know post happened successfully
 
 export default function CreateNotePage() {
+  // Router
   const router = useRouter()
+
+  // State
+  const [body, setBody] = useState('')
+  const [bodyCharacters, setBodyCharacters] = useState(0)
+  const [client, setClient] = useState('')
+  const [showValidation, setShowValidation] = useState(false)
+
+  // Ref
+  const textAreaRef = useRef(null)
+
+  const handleChangeBody = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setBody(event.target.value)
+    setBodyCharacters(event.target.value.trim().length)
+  }
+
+  const handleChangeClient = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setClient(event.target.value)
+  }
 
   const handleSubmit = async (event: any) => {
     event.preventDefault()
-  
-    // Data from form
-    const data = {
-      body: event.target.note.value,
-      client: event.target.client.value
-    }
-    const JSONData = JSON.stringify(data)
 
-    // Validate form data
-    if (data.body.length < 20) {
-      console.log("note validation message")
+    // If note is between 20 and 300 characters inclusive and not just a bunch of spaces
+    if (body.trim().length < 20 || body.trim().length > 300 || /\s{3,}/g.test(body)) {
+      // Focus on textarea field
+      textAreaRef.current.focus()
+      // Set status that shows the shake style
+      setShowValidation(true)
+      // Reset status
+      setTimeout(() => {
+        setShowValidation(false)
+      }, 2000)
     }
-
-    // Post to API
-    const api = '/api/notes'
-    const postOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSONData
+    // If form is valid
+    else {
+      // Data from form
+      const data = {
+        body: body,
+        client: client
+      }
+      const JSONData = JSON.stringify(data)
+      // Post to API
+      const api = '/api/notes'
+      const postOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSONData
+      }
+      const response = await fetch(api, postOptions)
+      const result = await response.json()
+      
+      // Redirect back to home page
+      router.push('/')
     }
-    const response = await fetch(api, postOptions)
-    const result = await response.json()
-
-    // TODO: Add some param to let home page know post happened successfully
-    
-    // Redirect back to home page
-    router.push('/')
   }
 
   return (
@@ -54,13 +80,16 @@ export default function CreateNotePage() {
             </label>
             <textarea
               id="note"
+              ref={textAreaRef}
+              value={body}
+              onChange={handleChangeBody}
               rows={5}
               placeholder="Note"
               required
               minLength={20}
               maxLength={300}
-              className="resize rounded-lg bg-gray-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-cyan-400"></textarea>
-              <p className="text-grey-400 text-xs italic">* Please enter between 20 and 300 characters.</p>
+              className={`resize rounded-lg bg-gray-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-cyan-400 ${showValidation ? 'field-validation' : ''}`}></textarea>
+              <p className="text-grey-400 text-xs italic">* Please enter between 20 and 300 characters. Currently: {bodyCharacters}</p>
           </div>
         </div>
 
@@ -71,14 +100,16 @@ export default function CreateNotePage() {
           <input
             id="client"
             type="text"
+            value={client}
+            onChange={handleChangeClient}
             placeholder="Client"
             className="bg-gray-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-cyan-400" />
         </div>
 
         <div className="flex-1 pl-4 pr-4 mt-6 mx-2">
           <button
-            onSubmit={handleSubmit}
-            className="w-44 bg-indigo-500 hover:bg-indigo-400 text-white font-bold py-2 px-4 rounded">
+            onClick={handleSubmit}
+            className="w-44 bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-2 px-4 rounded">
             Create Note
           </button>
         </div>
