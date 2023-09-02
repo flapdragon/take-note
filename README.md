@@ -91,12 +91,14 @@ A live demo of this app is deployed using Vercel at [https://take-note-one.verce
 
 1. Since this app takes in user input, and especially since it is publicly available without any authentication whatsoever in its current state, protections for SQLi and XSS need to be implemented, using libraries like dompurify.
 
-2. Add a speech to text option for data entry for those that find that easier to work with.
+2. Originally the create and edit forms were different, so I didn't make them re-usable components. Now they are almost exactly the same and should 100% be re-usable individual components (title, note/body, client, buttons, etc.).
 
-3. Add more robust client data, like a separate client table and on the frontend autocomplete/suggestion on data entry.
+3. Add a speech to text option for data entry for those that find that easier to work with.
 
-4. Add location services and data, to add to note/client data and possibly help autofill data.
+4. Add more robust client data, like a separate client table and on the frontend autocomplete/suggestion on data entry.
 
-5. The styling needs further work. In particular the page titles and the create and edit forms.
+5. Add location services and data, to add to note/client data and possibly help autofill data.
 
-5. Sorting by note body, client, date.
+6. The styling needs further work. In particular the page titles and the create and edit forms.
+
+7. Sorting by title, note body, client, date.
