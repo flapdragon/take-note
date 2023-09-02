@@ -18,7 +18,7 @@ export default function CreateNotePage() {
   const [showValidation, setShowValidation] = useState(false)
 
   // Ref
-  const textAreaRef = useRef(null)
+  const textAreaRef = useRef<HTMLTextAreaElement | null>(null)
 
   const handleChangeBody = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setBody(event.target.value)
@@ -35,7 +35,7 @@ export default function CreateNotePage() {
     // If note is between 20 and 300 characters inclusive and not just a bunch of spaces
     if (body.trim().length < 20 || body.trim().length > 300 || /\s{3,}/g.test(body)) {
       // Focus on textarea field
-      textAreaRef.current.focus()
+      textAreaRef.current?.focus()
       // Set status that shows the shake style
       setShowValidation(true)
       // Reset status

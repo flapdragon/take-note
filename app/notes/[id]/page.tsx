@@ -20,7 +20,7 @@ export default function EditNotePage() {
   const [showValidation, setShowValidation] = useState(false)
 
   // Ref
-  const textAreaRef = useRef(null)
+  const textAreaRef = useRef<HTMLTextAreaElement | null>(null)
 
   // Fetch note data
   useEffect(() => {
@@ -49,7 +49,7 @@ export default function EditNotePage() {
     // If note is between 20 and 300 characters inclusive and not just a bunch of spaces
     if (body.trim().length < 20 || body.trim().length > 300 || /\s{3,}/g.test(body)) {
       // Focus on textarea field
-      textAreaRef.current.focus()
+      textAreaRef.current?.focus()
       // Set status that shows the shake style
       setShowValidation(true)
       // Reset status
