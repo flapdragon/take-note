@@ -88,7 +88,7 @@ export default function CreateNotePage() {
               required
               minLength={20}
               maxLength={300}
-              className={`resize rounded-lg bg-gray-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-cyan-400 ${showValidation ? 'field-validation' : ''}`}></textarea>
+              className={`resize rounded-lg bg-gray-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-800 leading-tight focus:outline-none focus:bg-white focus:border-cyan-400 ${showValidation ? 'field-validation' : ''}`}></textarea>
               <p className="text-grey-400 text-xs italic">* Please enter between 20 and 300 characters. Currently: {bodyCharacters}</p>
           </div>
         </div>
@@ -103,7 +103,7 @@ export default function CreateNotePage() {
             value={client}
             onChange={handleChangeClient}
             placeholder="Client"
-            className="bg-gray-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-cyan-400" />
+            className="bg-gray-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-800 leading-tight focus:outline-none focus:bg-white focus:border-cyan-400" />
         </div>
 
         <div className="flex-1 pl-4 pr-4 mt-6 mx-2">
