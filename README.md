@@ -36,13 +36,13 @@ $ git clone https://github.com/flapdragon/take-note.git
 
 Install dependencies:
 ```bash
-npm  install
+npm install
 # or
 yarn
 # I used npm for this  project.
 ```
 
-Because I chose to deploy to Vercel and use their Postgres, there is the additional step of having to link your GitHub to Vercel and setup a Postgres database. Looking back this unfortunately makes the app not 100% self-contained git clone npm run dev bam I'm up and running.
+Because I chose to deploy to Vercel and use their Postgres, there is the additional step of having to link your GitHub to Vercel and setup a Postgres database. Looking back this unfortunately makes the app not 100% self-contained git-clone-npm-run-dev-bam I'm up and running style.
 
 While that is sad, it actually is super easy to use Vercel and I was done converting from SQLite3 to Vercel Postgres and deployed to a very free site in minutes.
 
@@ -71,7 +71,7 @@ You can likely create this file yourself and copy the fields from the site, omit
 
 Now, run the development server:
 ```bash
-npm  run  dev
+npm run dev
 # or
 yarn dev
 ```
@@ -91,4 +91,4 @@ A live demo of this app is deployed using Vercel at [https://take-note-one.verce
 
 3. Would add location services and data.
 
-4. The styling could use some work. 
+4. The styling could use some work. In particular the page titles and the create and edit forms.
