@@ -9,8 +9,10 @@ It is intended to be mobile-friendly, in particular smartphone and tablets as th
 The form validation is minimalist and implemented from the point of the view that the app itself is not and should not be the primary concern or focus of the user. What little validation is required is stated up front and gentle feedback on status is provided rather than immediate and aggressive red styling.
 
 
-## Description
+## Features
 A quick note on requirements. The only required field is the note body field, which must be >= 20 and <= 300 characters. I have also added a very simple regex check for spaces so that the user can't just enter spaces or enter mostly spaces.
+
+The search works for both the note and clients fields and since it is purely a frontend search and all of the records are present at once it works very well. As the recordset grows, serverside searches would need to be implemented along with pagination.
 
 
 ## Tech Stack
@@ -19,7 +21,7 @@ React @ 18.2.0<br />
 Tailwind @ 3.3.3<br />
 Vercel Postgres (chosen for deployment to Vercel) @ 0.4.1<br />
 Bootstrapped by `npx create-next-app@latest`<br />
-The application was intended to be simple like a rapid prototype so I purposely chose not to include things like ORMs or other helpers, preferring the most direct, most understandle solution every time. This means that there is SQL directly in the API methods and that the app is handling some things that it normally wouldn't. This would obviously need to change for a larger app.
+The application was intended to be simple like a rapid prototype, so I purposely chose not to include things like ORMs or other helpers, preferring the most direct, most understandable solution every time. This means that there is SQL directly in the API methods and that the app is handling some things that it normally wouldn't. This would obviously need to change for a larger app.
 
 
 ## Getting Started
@@ -64,7 +66,7 @@ You will need to install the Vercel CLI:
 npm i -g vercel@latest
 ```
 
-You will need to pull down the .env.development.local file so that you can connnecto the database locally:
+You will need to pull down the .env.development.local file so that you can connect to the database locally:
 ```bash
 vercel env pull .env.development.local
 ```
@@ -89,8 +91,10 @@ A live demo of this app is deployed using Vercel at [https://take-note-one.verce
 
 1. Since this app takes in user input, and especially since it is publicly available without any authentication whatsoever in its current state, protections for SQLi and XSS need to be implemented, using libraries like dompurify.
 
-2. Would certainly add a speech to text option for data entry for those that find that easier to work with.
+2. Add a speech to text option for data entry for those that find that easier to work with.
 
-3. Would add location services and data.
+3. Add location services and data.
 
-4. The styling could use some work. In particular the page titles and the create and edit forms.
+4. The styling needs further work. In particular the page titles and the create and edit forms.
+
+5. Sorting by note body, client, date.
