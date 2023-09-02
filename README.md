@@ -93,14 +93,16 @@ A live demo of this app is deployed using Vercel at [https://take-note-one.verce
 
 2. Originally the create and edit forms were different, so I didn't make them re-usable components. Now they are almost exactly the same and should 100% be broken out into re-usable individual components (title, note/body, client, buttons, etc.).
 
-3. Need to add more (or any) confirmation on form actions: create, edit, delete. In this case, in keeping with the simple Next.js page/route mechanism, it would be nice to add a Tailwind success alert on the page the user lands on after the action.
+3. Need error handling across the app, but in particular for the API, including middleware to catch, log and notify the appropriate parties.
 
-4. Add a speech to text option for data entry for those that find that easier to work with.
+4. Need to add more (or any) confirmation on form actions: create, edit, delete. In this case, in keeping with the simple Next.js page/route mechanism, it would be nice to add a Tailwind success alert on the page the user lands on after the action.
 
-5. Add more robust client data, like a separate client table and on the frontend autocomplete/suggestion on data entry.
+5. Add a speech to text option for data entry for those that find that easier to work with.
 
-6. Add location services and data, to add to note/client data and possibly help autofill data.
+6. Add more robust client data, like a separate client table and on the frontend autocomplete/suggestion on data entry.
 
-7. The styling needs further work. In particular the page titles and the create and edit forms.
+7. Add location services and data, to add to note/client data and possibly help autofill data.
 
-8. Sorting by title, note body, client, date.
+8. The styling needs further work. In particular the page titles and the create and edit forms.
+
+9. Sorting by title, note body, client, date.
