@@ -19,7 +19,7 @@ React @ 18.2.0<br />
 Tailwind @ 3.3.3<br />
 Vercel Postgres (chosen for deployment to Vercel) @ 0.4.1<br />
 Bootstrapped by `npx create-next-app@latest`<br />
-The application was intended to be simple so I purposely chose not to include things like ORMs or other helpers, preferring the most direct, most understandle solution every time. This means that there is SQL directly in the API methods and that the app is handling some things that it normally wouldn't. This would obviously need to change for a larger app.
+The application was intended to be simple like a rapid prototype so I purposely chose not to include things like ORMs or other helpers, preferring the most direct, most understandle solution every time. This means that there is SQL directly in the API methods and that the app is handling some things that it normally wouldn't. This would obviously need to change for a larger app.
 
 
 ## Getting Started
