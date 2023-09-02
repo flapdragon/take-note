@@ -70,15 +70,15 @@ export default function Home() {
   const NotesList = () => {
     return (
       <div className="content-center">
-        {data.filter((n: { id: number; body: string; client: string }) => search === '' || n.body.toLowerCase().includes(search.toLowerCase()) || n.client.toLowerCase().includes(search.toLowerCase()))
-          .map((note: { id: number; body: string; client: string }) =>
+        {data.filter((n: { id: number; title: string; body: string; client: string }) => search === '' || n.title.toLowerCase().includes(search.toLowerCase()) || n.body.toLowerCase().includes(search.toLowerCase()) || n.client.toLowerCase().includes(search.toLowerCase()))
+          .map((note: { id: number; title: string; body: string; client: string }) =>
             <Link key={note.id} href={`/notes/${note.id}`} className="cursor-pointer" title="Click to edit">
               <div className="relative group items-center">
                 <div className="absolute -inset-1 bg-cyan-400 rounded-lg opacity-0 group-hover:opacity-100 transition duration-500 group-hover:duration-100"></div>
                 <div className="relative bg-gray-100 text-gray-800 my-3 p-6 rounded-lg shadow-lg">
                   <div className="flex justify-between items-center">
                     <div>
-                      <h2 className="text-xl font-bold mb-2">This is the title</h2>
+                      <h2 className="text-xl font-bold mb-2">{note.title.length > 0 ? note.title : '(No title)'}</h2>
                     </div>
                     <div>
                       <Link href={`/notes/delete/${note.id}`} className="cursor-pointer" title="Delete">

@@ -12,6 +12,7 @@ export default function CreateNotePage() {
   const router = useRouter()
 
   // State
+  const [title, setTitle] = useState('')
   const [body, setBody] = useState('')
   const [bodyCharacters, setBodyCharacters] = useState(0)
   const [client, setClient] = useState('')
@@ -19,6 +20,10 @@ export default function CreateNotePage() {
 
   // Ref
   const textAreaRef = useRef<HTMLTextAreaElement | null>(null)
+
+  const handleChangeTitle = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setTitle(event.target.value)
+  }
 
   const handleChangeBody = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setBody(event.target.value)
@@ -47,6 +52,7 @@ export default function CreateNotePage() {
     else {
       // Data from form
       const data = {
+        title: title,
         body: body,
         client: client
       }
@@ -74,6 +80,19 @@ export default function CreateNotePage() {
         </div>
 
         <div className="flex-1 mb-6">
+          <label className="text-gray-700 font-bold lg:text-right mb-1 lg:mb-0 pr-4" htmlFor="title">
+            Title:
+          </label>
+          <input
+            id="title"
+            type="text"
+            value={title}
+            onChange={handleChangeTitle}
+            placeholder="Client"
+            className="bg-gray-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-800 leading-tight focus:outline-none focus:bg-white focus:border-cyan-400" />
+        </div>
+
+        <div className="flex-1 mb-6">
           <div className="col-span-2">
             <label className="block text-gray-700 font-bold lg:text-right mb-1 lg:mb-0 pr-4" htmlFor="note">
               Note*:
@@ -89,7 +108,7 @@ export default function CreateNotePage() {
               minLength={20}
               maxLength={300}
               className={`resize rounded-lg bg-gray-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-800 leading-tight focus:outline-none focus:bg-white focus:border-cyan-400 ${showValidation ? 'field-validation' : ''}`}></textarea>
-              <p className="text-grey-400 text-xs italic">* Please enter between 20 and 300 characters. Currently: {bodyCharacters}</p>
+              <p className="text-grey-400 text-sm italic">* Please enter between 20 and 300 characters. Currently: {bodyCharacters}</p>
           </div>
         </div>
 

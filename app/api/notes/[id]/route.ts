@@ -14,7 +14,7 @@ export async function PUT(request: Request, { params }: { params: { id: string }
   // Form note data
   const formNote = await request.json()
   // Update note
-  const updateNote = sql`UPDATE notes SET title = '', body = ${formNote.body}, client = ${formNote.client} WHERE id = ${params.id};`
+  const updateNote = sql`UPDATE notes SET title = ${formNote.title}, body = ${formNote.body}, client = ${formNote.client} WHERE id = ${params.id};`
   return NextResponse.json({ "status": "success" })
 }
 
