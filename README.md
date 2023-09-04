@@ -103,6 +103,6 @@ A live demo of this app is deployed using Vercel at [https://take-note-one.verce
 
 7. Add location services and data, to add to note/client data and possibly help autofill data.
 
-8. The styling needs further work. In particular the page titles and the create and edit forms.
+8. The styling needs further work, especially on mobile. The page titles need to be re-worked.
 
 9. Sorting by title, note body, client, date.
